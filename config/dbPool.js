@@ -14,15 +14,4 @@ const pool = new Pool({
   rejectUnauthorized: false, // Only if your database requires SSL and allows self-signed certificates
 });
 
-
-//  Log the exact error from the database connection attempt
-pool.on('error', (err) => {
-  console.error('Unexpected error on idle client', err);
-  process.exit(-1);
-});
-
-console.log('Database URL:', process.env.DATABASE_URL);  // For debugging only
-
-
-
 export default pool;
