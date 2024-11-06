@@ -1,0 +1,82 @@
+a {
+  display: inline-block;
+  text-decoration: none;
+}
+
+.primary-btn {
+  padding: 6px 12px;
+  border-radius: 20px;
+  background-color: #000;
+  cursor: pointer;
+  font-weight: 700;
+  color: white;
+  height: 40px;
+  width: 90px;
+}
+
+.primary-btn:hover {
+  background-color: #6a6a6a;
+  color: white;
+}
+
+.secondary-btn {
+  border: 2px solid #e2e2e2;
+  padding: 1px 12px;
+  border-radius: 20px;
+  background-color: #fff;
+  cursor: pointer;
+  font-weight: 700;
+  color: #000;
+}
+
+.secondary-btn:hover {
+  border: 2px solid #000;
+}
+
+.add-btn-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  align-items: center;
+  margin-top: 16px;
+  background-color: #f0f0f0;
+  left: 50%; /* Center the container horizontally */
+  z-index: 1000;
+  position: sticky;
+  bottom: 0px;
+}
+
+.add-btn {
+  display: inline-block;
+  width: 48px;
+  height: 48px;
+  background: url("/assets/svg/plus-circle.svg") no-repeat center center;
+  background-size: contain;
+}
+
+.add-btn:hover {
+  display: inline-block;
+  width: 48px;
+  height: 48px;
+  background: url("/assets/svg/plus-circle-solid.svg") no-repeat center center;
+  background-size: contain;
+  cursor: pointer;
+}
+
+.back-btn {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  background: url("/assets/svg/arrow-left-circle.svg") no-repeat center center;
+  background-size: contain;
+}
+
+.back-btn:hover {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  background: url("/assets/svg/arrow-left-circle-solid.svg") no-repeat center
+    center;
+  background-size: contain;
+}

@@ -1,0 +1,74 @@
+.book-item {
+  display: flex;
+  align-items: flex-start;
+  padding: 16px 0;
+  border-bottom: 1px solid #f0f0f0;
+  overflow: hidden; /* Ensures content doesn't spill out */
+}
+
+.book-cover {
+  width: 120px;
+  height: 192px;
+  background-size: contain;
+  border-radius: 4px;
+}
+
+.book-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  flex: 1;
+  height: auto; /* Allow height to adjust based on content */
+  margin-left: 16px;
+  overflow-wrap: break-word; /* Ensures text wraps */
+  word-wrap: break-word;
+  word-break: break-word; /* Helps break long words */
+}
+
+.book-meta-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+  gap: 8px;
+}
+
+.book-meta-top-right-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 4px;
+}
+
+.book-meta-mid {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.book-title {
+  font-family: "Lora", serif;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.book-author {
+  font-size: 16px;
+  color: #6a6a6a;
+}
+
+.book-rating {
+  display: flex;
+  padding: 0;
+  gap: 4px;
+}
+
+.book-review {
+  margin-top: 8px;
+  font-size: 14px;
+  color: #4a4a4a;
+  line-height: 1.4; /* Improves readability */
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
+}

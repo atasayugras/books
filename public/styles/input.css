@@ -1,0 +1,43 @@
+textarea {
+  font-family: "Rubik", sans-serif;
+  border: none;
+  background-color: #f0fff0;
+  padding: 8px 0px 8px 12px;
+  border-radius: 4px;
+  width: 100%;
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+}
+
+.search-input {
+  font-family: "Rubik", sans-serif;
+  font-size: 16px;
+  border: none;
+  background-color: #e2e2e2;
+  padding: 8px 0px 8px 12px;
+  border-radius: 4px;
+  height: 32px;
+}
+
+.text-input {
+  font-family: "Rubik", sans-serif;
+  border: none;
+  background-color: #f0fff0;
+  padding: 8px 0px 8px 12px;
+  border-radius: 4px;
+  width: 100%;
+  height: 48px;
+}
+
+  .dropdown-selector {
+    font-family: "Rubik", sans-serif;
+    border: none;
+    background-color: #f0fff0;
+    padding: 8px 0px 8px 12px;
+    border-radius: 4px;
+    width: 100%;
+    height: 48px;
+  }

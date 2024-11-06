@@ -1,0 +1,98 @@
+<%- include('../partials/header') %> <%- include('../partials/sticky_action') %>
+
+<!-- White Background Section -->
+<div class="main-white-container">
+  <!-- Page Title Section -->
+  <div class="content-container">
+    <h1 class="form-page-title">Edit book</h1>
+  </div>
+</div>
+
+<!-- Gray Background Section -->
+<div class="main-gray-container">
+  <div class="content-container">
+    <!-- Elevated card -->
+    <div class="elevated-card">
+      <form id="editBookForm" action="/edit_book" method="POST" data-rating="<%= book.rating || 0 %>" data-status="<%= book.status || '' %>">
+        <input type="hidden" name="id" value="<%= book.id %>"> <!-- Hidden field to store book ID -->
+        
+        <div class="form-item">
+          <h2>ISBN*</h2>
+          <input
+            name="isbn"
+            id="isbnInput"
+            maxlength="13"
+            class="text-input"
+            type="text"
+            value="<%= book.isbn %>"
+            required
+          />
+        </div>
+
+        <div class="form-item">
+          <h2>Book name*</h2>
+          <input
+            name="title"
+            class="text-input"
+            type="text"
+            value="<%= book.title %>"
+            required
+          />
+        </div>
+
+        <div class="form-item">
+          <h2>Author name*</h2>
+          <input
+            name="author"
+            class="text-input"
+            type="text"
+            value="<%= book.author %>"
+            required
+          />
+        </div>
+
+        <div class="form-item">
+          <h2>Rating</h2>
+          <div id="ratingContainer" class="book-rating">
+            <span class="heart" data-value="1"></span>
+            <span class="heart" data-value="2"></span>
+            <span class="heart" data-value="3"></span>
+            <span class="heart" data-value="4"></span>
+            <span class="heart" data-value="5"></span>
+          </div>
+          <input name="rating" type="hidden" id="ratingValue" value="0">
+        </div>
+
+        <div class="form-item">
+          <h2>Genre</h2>
+          <input
+            name="genre"
+            class="text-input"
+            type="text"
+            value="<%= book.genre %>"
+            required
+          />
+        </div>
+       
+        <div class="form-item">
+          <h2>Status</h2>
+          <select name="status" class="dropdown-selector">
+            <option value="want-to-read">Want to read</option>
+            <option value="reading">Reading</option>
+            <option value="read">Read</option>
+          </select>
+        </div>
+
+        <div class="form-item">
+          <h2>Review</h2>
+          <textarea name="review" rows="5"><%= book.review %></textarea>
+        </div>
+        
+      </form>
+    </div>
+  </div>
+</div>
+<%- include('../partials/footer') %>
+
+<!-- No inline data assignment here -->
+<script src="/js/edit.js"></script>

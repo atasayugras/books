@@ -1,0 +1,94 @@
+<%- include('../partials/header') %> <%- include('../partials/sticky_action') %>
+<!-- White Background Section -->
+<div class="main-white-container">
+  <!-- Page Title Section -->
+  <div class="content-container">
+    <h1 class="form-page-title">Add new book</h1>
+  </div>
+</div>
+
+<!-- Gray Background Section -->
+<div class="main-gray-container">
+  <div class="content-container">
+    <!-- Elevated card -->
+    <div class="elevated-card">
+      <form id="bookForm" action="/add_book" method="POST">
+  
+        <div class="form-item">
+          <h2>ISBN*</h2>
+          <input
+            name="isbn"
+            id="isbnInput"
+            maxlength="13"
+            class="text-input"
+            type="text"
+            placeholder="Enter book's ISBN code"
+            required
+          />
+        </div>
+
+        <div class="form-item">
+          <h2>Book name*</h2>
+          <input
+            name="title"
+            class="text-input"
+            type="text"
+            placeholder="Enter the book's name"
+            required
+          />
+        </div>
+
+        <div class="form-item">
+          <h2>Author name*</h2>
+          <input
+            name="author"
+            class="text-input"
+            type="text"
+            placeholder="Enter the author's name"
+            required
+          />
+        </div>
+
+        <div class="form-item">
+          <h2>Rating</h2>
+          <div id="ratingContainer" class="book-rating">
+            <span class="heart" data-value="1"></span>
+            <span class="heart" data-value="2"></span>
+            <span class="heart" data-value="3"></span>
+            <span class="heart" data-value="4"></span>
+            <span class="heart" data-value="5"></span>
+          </div>
+          <input name="rating" type="hidden" id="ratingValue" value="0">
+        </div>
+
+        <div class="form-item">
+          <h2>Genre</h2>
+          <input
+            name="genre"
+            class="text-input"
+            type="text"
+            placeholder="Enter genre"
+            required
+          />
+        </div>
+       
+        <div class="form-item">
+          <h2>Status</h2>
+          <select name="status" class="dropdown-selector">
+            <option value="want-to-read">Want to read</option>
+            <option value="reading">Reading</option>
+            <option value="read">Read</option>
+          </select>
+        </div>
+
+        <div class="form-item">
+          <h2>Review</h2>
+          <textarea name="review" rows="5" placeholder="Write your review here..."></textarea>
+        </div>
+        
+      </form>
+    </div>
+  </div>
+</div>
+<%- include('../partials/footer') %>
+<script src="/js/add.js"></script>

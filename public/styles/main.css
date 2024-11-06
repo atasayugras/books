@@ -1,0 +1,83 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  cursor: url('/assets/cursor/cursor.cur'), auto;
+}
+
+*::selection {
+  background-color: #d4ff66; /* Desired background color */
+  color: black; /* Optional: text color */
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: "Rubik", sans-serif;
+  background-color: #fff;
+  padding-top: 50px;
+  flex: 1;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Containers */
+.content-container {
+  max-width: 600px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.main-white-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 40px 0;
+  height: 172px;
+}
+
+.main-gray-container {
+  background-color: #f0f0f0;
+  padding: 40px 0px;
+  flex: 1;
+}
+
+.parent-primary-action-container {
+  position: fixed;
+  top: 49px;
+  width: 100%;
+  background-color: white;
+  z-index: 999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.primary-action-container {
+  display: flex;
+  justify-content: space-between;
+  max-width: 600px;
+  width: 100%;
+  padding: 16px;
+}
+
+.elevated-card {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 16px;
+}
+
+.empty-state {
+  text-align: center;
+  color: #6a6a6a;
+  font-size: 16px;
+  display: none; /* Hidden by default */
+}
+

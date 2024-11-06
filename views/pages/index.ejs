@@ -1,0 +1,88 @@
+<%- include('../partials/header') %>
+
+<!-- White Background Section -->
+<div class="main-white-container">
+  <div class="content-container">
+    <h1 class="page-title">Here is your bookshelf Atasay,</h1>
+    <p class="sub-title">Track and review your favorite books by adding to your bookshelf</p>
+  </div>
+</div>
+
+<!-- Gray Background Section -->
+<div class="main-gray-container">
+  <div class="content-container">
+
+    <!-- Filter Section -->
+    <div class="main-filter-container">
+      <div class="rating-filter-container">
+        <label for="ratingFilter" class="rating-filter-label">Filter by Rating:</label>
+        <select id="ratingFilter" class="rating-filter-dropdown-selector">
+          <option value="all">All Ratings</option>
+          <option value="1">1 Star</option>
+          <option value="2">2 Stars</option>
+          <option value="3">3 Stars</option>
+          <option value="4">4 Stars</option>
+          <option value="5">5 Stars</option>
+        </select>
+      </div>
+
+      <div class="search-filter-container">
+        <input id="bookSearch" class="search-input" type="text" placeholder="Search by book title..." />
+        <span class="search-icon"></span>
+      </div>
+    </div>
+
+    <!-- Elevated card -->
+    <div class="elevated-card">
+      <% if (books.length > 0) { %>
+        <% books.forEach(book => { %>
+          <div class="book-item">
+            <div class="book-cover" style="background-image: url('<%= book.cover_image %>');"></div>
+            <div class="book-details">
+              <div class="book-meta-top">
+                <h5><%= book.date.toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' }) %></h5>
+                <div class="book-meta-top-right-container">
+                  <span class="label"><%= book.genre %></span>
+                  <div class="book-actions">
+                    <a class="secondary-btn" href="/edit?bookId=<%= book.id %>">Edit</a>
+                  </div>
+                </div>
+              </div>
+              <div class="book-meta-mid">
+                <h3 class="book-title"><%= book.title %></h3>
+                <p class="book-author"><%= book.author %></p>
+                <div class="book-rating" style="pointer-events: none; cursor: default;">
+                  <% for (let i = 1; i <= 5; i++) { %>
+                    <% if (i <= book.rating) { %>
+                      <span class="heart-solid"></span>
+                    <% } else { %>
+                      <span class="heart"></span>
+                    <% } %>
+                  <% } %>
+                </div>
+                <p class="book-review">
+                  <%= book.review && book.review.trim().length > 0 ? book.review : 'No review available.' %>
+                </p>
+              </div>
+            </div>
+          </div>
+        <% }); %>
+      <% } %>
+      <!-- Empty State Message (always in the DOM) -->
+      <div class="empty-state" style="display: none;">
+        <span class="db-search"></span>
+        <p>No books available with this criteria.</p>
+      </div>
+    </div>
+
+    <!-- Add Book Button -->
+    <div class="add-btn-container">
+      <a href="/add_book" class="add-btn"></a>
+    </div>
+  </div>
+</div>
+
+<%- include('../partials/footer') %>
+
+<%- include('../partials/header') %>
+<script src="/js/home.js"></script>

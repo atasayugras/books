@@ -1,0 +1,31 @@
+.heart {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background: url('/assets/svg/heart.svg') no-repeat center center;
+  background-size: contain;
+  cursor: pointer; /* Added for pointer on hover */
+}
+
+.heart-solid {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background: url('/assets/svg/heart-solid.svg') no-repeat center center;
+  background-size: contain;
+  cursor: pointer; /* Added for pointer on hover */
+}
+
+.heart:hover,
+.heart:hover ~ .heart {
+  filter: brightness(1.2);
+}
+
+.db-search {
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  background: url('/assets/svg/database-search.svg') no-repeat center center;
+  background-size: contain;
+  margin-bottom: 4px;
+}
