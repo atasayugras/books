@@ -18,15 +18,15 @@ const __dirname = path.dirname(__filename);
 app.use(express.static(path.join(__dirname, 'Public')));
 app.set('view engine', 'ejs');
 
-// Use the modular routes
-app.use('/', homeRoutes);
-app.use('/', addBookRoutes);
-app.use('/', editBookRoutes);
-
 // General error handling middleware
 app.use((err, req, res, next) => {
   console.error(`Error occurred: ${err.message}`);
   res.status(err.status || 500).send(err.message || 'Something went wrong. Please try again later.');
 });
+
+// Use the modular routes
+app.use('/', homeRoutes);
+app.use('/', addBookRoutes);
+app.use('/', editBookRoutes);
 
 app.listen(port, () => console.log(`Server is running on port ${port}`));
