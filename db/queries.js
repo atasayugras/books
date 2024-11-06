@@ -3,7 +3,7 @@ import pool from "../config/dbPool.js";
 // Function to get all books
 export const getAllBooks = async () => {
   try {
-    const result = await pool.query("SELECT * FROM public.books ORDER BY id ASC ");
+    const result = await pool.query("SELECT * FROM public.books ORDER BY title ASC");
     return result.rows;
   } catch (err) {
     console.error("Error fetching books:", err);
