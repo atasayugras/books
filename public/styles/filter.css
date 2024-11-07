@@ -12,13 +12,13 @@
 }
 
 .rating-filter-label {
-  font-size: 16px;
+  font-size: 0.8rem;
   margin-right: 8px;
 }
 
 .rating-filter-dropdown-selector {
     font-family: "Rubik", sans-serif;
-    font-size: 16px;
+    font-size: 0.8rem;
     border: none;
     background-color: transparent;
     border-radius: 4px;

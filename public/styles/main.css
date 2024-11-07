@@ -3,7 +3,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  cursor: url('/assets/cursor/cursor.cur'), auto;
+  cursor: url('/assets/cursor/64.png'), auto;
 }
 
 *::selection {

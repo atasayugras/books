@@ -20,13 +20,15 @@ a {
 }
 
 .secondary-btn {
+  font-size: 0.8rem;
   border: 2px solid #e2e2e2;
-  padding: 1px 12px;
+  padding: 4px 8px;
   border-radius: 20px;
   background-color: #fff;
   cursor: pointer;
   font-weight: 700;
   color: #000;
+  text-wrap: nowrap;
 }
 
 .secondary-btn:hover {
