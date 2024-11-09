@@ -1,54 +1,65 @@
 document.addEventListener('DOMContentLoaded', () => {
   const editForm = document.getElementById('editBookForm');
-  const submitButton = document.getElementById('submitButton'); // Button from partial
-  const initialRating = parseInt(editForm.dataset.rating, 10) || 0;
-  const initialStatus = editForm.dataset.status || '';
+  if (editForm) {
+    // Retrieve initial rating and status from data attributes
+    const initialRating = parseInt(editForm.dataset.rating, 10) || 0;
+    const initialStatus = editForm.dataset.status || '';
 
-  const ratingContainer = document.getElementById('ratingContainer');
-  const hearts = ratingContainer.querySelectorAll('.heart');
-  const ratingValueInput = document.getElementById('ratingValue');
+    /* ********** HANDLE RATING ********** */
+    const ratingContainer = document.getElementById('ratingContainer');
+    if (ratingContainer) {
+      const hearts = ratingContainer.querySelectorAll('.heart');
+      const ratingValueInput = document.getElementById('ratingValue');
+      let selectedValue = initialRating; // Use initialRating as the default selected rating
 
-  // Function to update the hearts' appearance based on the selected value
-  const updateHearts = (value) => {
-    hearts.forEach((heart, index) => {
-      if (index < value) {
-        heart.classList.remove('heart');
-        heart.classList.add('heart-solid');
-      } else {
-        heart.classList.remove('heart-solid');
-        heart.classList.add('heart');
-      }
-    });
-  };
+      // Function to fill hearts based on a specified value
+      const updateHearts = (value) => {
+        hearts.forEach((heart, index) => {
+          heart.classList.toggle('heart-solid', index < value); // Adds fill to hearts up to the specified value
+        });
+      };
 
-  // Set the initial rating visually
-  ratingValueInput.value = initialRating;
-  updateHearts(initialRating);
+      // Set the initial rating value on page load
+      ratingValueInput.value = initialRating;
+      updateHearts(initialRating);
 
-  // Make each heart clickable for rating selection
-  hearts.forEach((heart) => {
-    heart.addEventListener('click', (event) => {
-      const value = parseInt(event.target.getAttribute('data-value'), 10);
-      ratingValueInput.value = value;
-      updateHearts(value);
-    });
-  });
+      // Add hover effect to visually fill hearts up to the hovered one
+      hearts.forEach((heart, index) => {
+        heart.addEventListener('mouseover', () => {
+          updateHearts(index + 1); // Temporarily fills hearts up to and including the hovered one
+        });
 
-  // Handle initial status selection
-  const statusSelect = document.querySelector('select[name="status"]');
-  Array.from(statusSelect.options).forEach((option) => {
-    if (option.value === initialStatus) {
-      option.selected = true;
+        heart.addEventListener('mouseleave', () => {
+          updateHearts(selectedValue); // Resets hearts to the last clicked (selected) rating after hovering
+        });
+
+        // Store clicked heart’s value and update the rating
+        heart.addEventListener('click', () => {
+          selectedValue = index + 1; // Updates selected rating based on click
+          ratingValueInput.value = selectedValue; // Sets hidden input for form submission
+          updateHearts(selectedValue); // Updates hearts to reflect the clicked rating
+        });
+      });
     }
-  });
 
-  // Form submission trigger - only add event if button exists
-  if (submitButton) {
-    submitButton.addEventListener('click', (event) => {
-      event.preventDefault(); // Prevent default if triggering manually
-      editForm.submit(); // Manually trigger form submission
-    });
-  } else {
-    console.error("Submit button with ID 'submitButton' not found");
+    /* ********** HANDLE STATUS SELECT ********** */
+    const statusSelect = document.querySelector('select[name="status"]');
+    if (statusSelect) {
+      // Set the initial selected status
+      Array.from(statusSelect.options).forEach((option) => {
+        if (option.value === initialStatus) {
+          option.selected = true;
+        }
+      });
+    }
+
+    /* ********** TRIGGER FORM SUBMISSION ********** */
+    const submitButton = document.getElementById('submitButton');
+    if (submitButton) {
+      submitButton.addEventListener('click', (event) => {
+        event.preventDefault();
+        editForm.submit(); // Submits the form when the submit button is clicked
+      });
+    }
   }
 });

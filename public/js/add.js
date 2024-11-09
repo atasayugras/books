@@ -1,39 +1,52 @@
+document.addEventListener('DOMContentLoaded', () => {
   /* ********** TRIGGER FORM ********** */
-  document.getElementById("submitButton").addEventListener("click", () => {
-    document.getElementById("addBookForm").submit();
-  });
+  // Submits the addBookForm when the submit button is clicked
+  const submitButton = document.getElementById('submitButton');
+  if (submitButton) {
+    submitButton.addEventListener("click", () => {
+      document.getElementById("addBookForm").submit();
+    });
+  }
 
   /* ********** ISBN INPUT ONLY NUMBER ********** */
-  document.getElementById('isbnInput').addEventListener('input', function () {
-  this.value = this.value.replace(/[^0-9]/g, ''); // Removes any non-numeric characters
-});
-
+  // Restricts ISBN input to only numbers
+  const isbnInput = document.getElementById('isbnInput');
+  if (isbnInput) {
+    isbnInput.addEventListener('input', function () {
+      this.value = this.value.replace(/[^0-9]/g, ''); // Removes non-numeric characters
+    });
+  }
 
   /* ********** HANDLE RATING ********** */
-document.addEventListener('DOMContentLoaded', () => {
   const ratingContainer = document.getElementById('ratingContainer');
-  const hearts = ratingContainer.querySelectorAll('.heart');
-  const ratingValueInput = document.getElementById('ratingValue');
+  if (ratingContainer) {
+    const hearts = ratingContainer.querySelectorAll('.heart');
+    const ratingValueInput = document.getElementById('ratingValue');
+    let selectedValue = 0; // Tracks the selected rating on click
 
-  // Function to update the hearts' appearance based on the selected value
-  const updateHearts = (value) => {
+    // Fills the hearts based on the given value
+    const updateHearts = (value) => {
+      hearts.forEach((heart, index) => {
+        heart.classList.toggle('heart-solid', index < value); // Adds or removes the fill class based on index
+      });
+    };
+
+    // Adds hover effect to visually fill hearts up to the hovered one
     hearts.forEach((heart, index) => {
-      if (index < value) {
-        heart.classList.remove('heart');
-        heart.classList.add('heart-solid');
-      } else {
-        heart.classList.remove('heart-solid');
-        heart.classList.add('heart');
-      }
-    });
-  };
+      heart.addEventListener('mouseover', () => {
+        updateHearts(index + 1); // Fills hearts up to and including the hovered one
+      });
 
-  // Add click event to each heart
-  hearts.forEach((heart) => {
-    heart.addEventListener('click', () => {
-      const value = parseInt(heart.getAttribute('data-value'));
-      ratingValueInput.value = value; // Set the hidden input's value
-      updateHearts(value); // Update the hearts' appearance
+      heart.addEventListener('mouseleave', () => {
+        updateHearts(selectedValue); // Resets to the clicked rating after hover ends
+      });
+
+      // Stores the value of the clicked heart, updates fill, and sets rating input
+      heart.addEventListener('click', () => {
+        selectedValue = index + 1; // Updates selected rating based on click
+        updateHearts(selectedValue); // Updates hearts to reflect the clicked rating
+        ratingValueInput.value = selectedValue; // Sets the hidden input value for form submission
+      });
     });
-  });
+  }
 });

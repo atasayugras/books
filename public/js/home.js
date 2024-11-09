@@ -4,10 +4,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const bookItems = document.querySelectorAll('.book-item');
     const emptyState = document.querySelector('.empty-state');
   
-    //Show empty state
-    //Search books by their title
-    //Filter books by their rating
-
+    
+    
+//Show empty state
     function updateEmptyState() {
       const visibleBooks = Array.from(bookItems).filter(book => book.style.display !== 'none');
       if (emptyState) {
@@ -15,27 +14,31 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
   
-    // Filter by search input
-    searchInput.addEventListener('input', () => {
-      const filter = searchInput.value.toLowerCase();
-      bookItems.forEach(bookItem => {
-        const bookTitle = bookItem.querySelector('.book-title').textContent.toLowerCase();
-        bookItem.style.display = bookTitle.includes(filter) ? 'flex' : 'none';
+//Search books by their title
+    if (searchInput) {
+      searchInput.addEventListener('input', () => {
+        const filter = searchInput.value.toLowerCase();
+        bookItems.forEach(bookItem => {
+          const bookTitle = bookItem.querySelector('.book-title').textContent.toLowerCase();
+          bookItem.style.display = bookTitle.includes(filter) ? 'flex' : 'none';
+        });
+        updateEmptyState();
       });
-      updateEmptyState();
-    });
+    }
   
-    // Filter by rating
-    ratingFilter.addEventListener('change', () => {
-      const selectedRating = ratingFilter.value;
-      bookItems.forEach(bookItem => {
-        const bookRating = bookItem.querySelectorAll('.heart-solid').length;
-        bookItem.style.display = (selectedRating === 'all' || parseInt(selectedRating) === bookRating) ? 'flex' : 'none';
+//Filter books by their rating
+    if (ratingFilter) {
+      ratingFilter.addEventListener('change', () => {
+        const selectedRating = ratingFilter.value;
+        bookItems.forEach(bookItem => {
+          const bookRating = bookItem.querySelectorAll('.heart-solid').length;
+          bookItem.style.display = (selectedRating === 'all' || parseInt(selectedRating) === bookRating) ? 'flex' : 'none';
+        });
+        updateEmptyState();
       });
-      updateEmptyState();
-    });
+    }
   
     // Initial check for empty state on page load
-    updateEmptyState();
+    if (bookItems.length > 0) updateEmptyState();
   });
   
