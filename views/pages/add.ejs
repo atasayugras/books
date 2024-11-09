@@ -3,7 +3,7 @@
 <div class="main-white-container">
   <!-- Page Title Section -->
   <div class="content-container">
-    <h1 class="form-page-title">Add new book</h1>
+    <h1 class="page-title">Add new book</h1>
   </div>
 </div>
 
@@ -12,17 +12,18 @@
   <div class="content-container">
     <!-- Elevated card -->
     <div class="elevated-card">
-      <form id="bookForm" action="/add_book" method="POST">
+      <form id="addBookForm" action="/add_book" method="POST">
   
         <div class="form-item">
           <h2>ISBN*</h2>
           <input
-            name="isbn"
-            id="isbnInput"
-            maxlength="13"
             class="text-input"
+            id="isbnInput"
+            name="isbn"
             type="text"
             placeholder="Enter book's ISBN code"
+            minlength="10"
+            maxlength="13"
             required
           />
         </div>
@@ -30,8 +31,8 @@
         <div class="form-item">
           <h2>Book name*</h2>
           <input
-            name="title"
             class="text-input"
+            name="title"
             type="text"
             placeholder="Enter the book's name"
             required
@@ -41,8 +42,8 @@
         <div class="form-item">
           <h2>Author name*</h2>
           <input
-            name="author"
             class="text-input"
+            name="author"
             type="text"
             placeholder="Enter the author's name"
             required
@@ -51,39 +52,89 @@
 
         <div class="form-item">
           <h2>Rating</h2>
-          <div id="ratingContainer" class="book-rating">
-            <span class="heart" data-value="1"></span>
-            <span class="heart" data-value="2"></span>
-            <span class="heart" data-value="3"></span>
-            <span class="heart" data-value="4"></span>
-            <span class="heart" data-value="5"></span>
+          <div 
+            id="ratingContainer" 
+            class="book-rating">
+              <span class="heart" data-value="1"></span>
+              <span class="heart" data-value="2"></span>
+              <span class="heart" data-value="3"></span>
+              <span class="heart" data-value="4"></span>
+              <span class="heart" data-value="5"></span>
           </div>
-          <input name="rating" type="hidden" id="ratingValue" value="0">
+          <input 
+            id="ratingValue"
+            name="rating" 
+            type="hidden"  
+            value="0">
         </div>
 
         <div class="form-item">
           <h2>Genre</h2>
-          <input
-            name="genre"
-            class="text-input"
-            type="text"
-            placeholder="Enter genre"
-            required
-          />
+          <select 
+            name="genre" 
+            class="text-input" 
+            required>
+              <option value="" disabled selected>Select a genre</option>
+              <option value="Adventure">Adventure</option>
+              <option value="Art">Art</option>
+              <option value="Biography">Biography</option>
+              <option value="Business">Business</option>
+              <option value="Children">Children</option>
+              <option value="Classics">Classics</option>
+              <option value="Comics">Comics</option>
+              <option value="Cookbooks">Cookbooks</option>
+              <option value="Crime">Crime</option>
+              <option value="Drama">Drama</option>
+              <option value="Dystopian">Dystopian</option>
+              <option value="Education">Education</option>
+              <option value="Fantasy">Fantasy</option>
+              <option value="Graphic Novel">Graphic Novel</option>
+              <option value="Historical Fiction">Historical Fiction</option>
+              <option value="Horror">Horror</option>
+              <option value="Humor">Humor</option>
+              <option value="Memoir">Memoir</option>
+              <option value="Mystery">Mystery</option>
+              <option value="Non-fiction">Non-fiction</option>
+              <option value="Philosophy">Philosophy</option>
+              <option value="Poetry">Poetry</option>
+              <option value="Psychology">Psychology</option>
+              <option value="Religion">Religion</option>
+              <option value="Romance">Romance</option>
+              <option value="Science">Science</option>
+              <option value="Science Fiction">Science Fiction</option>
+              <option value="Self-help">Self-help</option>
+              <option value="Short Stories">Short Stories</option>
+              <option value="Spirituality">Spirituality</option>
+              <option value="Sports">Sports</option>
+              <option value="Tragedy">Tragedy</option>
+              <option value="Travel">Travel</option>
+              <option value="Thriller">Thriller</option>
+              <option value="True Crime">True Crime</option>
+              <option value="Young Adult">Young Adult</option>
+              <option value="+18">+18</option>
+              <!-- Add any other genres as needed -->
+          </select>
         </div>
+        
        
         <div class="form-item">
           <h2>Status</h2>
-          <select name="status" class="dropdown-selector">
-            <option value="want-to-read">Want to read</option>
-            <option value="reading">Reading</option>
-            <option value="read">Read</option>
+          <select 
+            name="status" 
+            class="dropdown-selector">
+              <option value="read">Read</option>
+              <option value="want-to-read">Want to read</option>
+              <option value="reading">Reading</option>
           </select>
         </div>
 
         <div class="form-item">
           <h2>Review</h2>
-          <textarea name="review" rows="5" placeholder="Write your review here..."></textarea>
+          <textarea 
+            name="review" 
+            rows="5" 
+            placeholder="Write your review here...">
+          </textarea>
         </div>
         
       </form>

@@ -4,7 +4,7 @@
 <div class="main-white-container">
   <!-- Page Title Section -->
   <div class="content-container">
-    <h1 class="form-page-title">Edit book</h1>
+    <h1 class="page-title">Edit book</h1>
   </div>
 </div>
 
@@ -21,6 +21,7 @@
           <input
             name="isbn"
             id="isbnInput"
+            minlength="10"
             maxlength="13"
             class="text-input"
             type="text"
@@ -65,14 +66,51 @@
 
         <div class="form-item">
           <h2>Genre</h2>
-          <input
-            name="genre"
-            class="text-input"
-            type="text"
-            value="<%= book.genre %>"
-            required
-          />
+          <select 
+          class="text-input"
+            name="genre"  
+            required>
+              <option value="" disabled selected>Select a genre</option>
+              <option value="Adventure" <%= book.genre === 'Adventure' ? 'selected' : '' %>>Adventure</option>
+              <option value="Art" <%= book.genre === 'Art' ? 'selected' : '' %>>Art</option>
+              <option value="Biography" <%= book.genre === 'Biography' ? 'selected' : '' %>>Biography</option>
+              <option value="Business" <%= book.genre === 'Business' ? 'selected' : '' %>>Business</option>
+              <option value="Children" <%= book.genre === 'Children' ? 'selected' : '' %>>Children</option>
+              <option value="Classics" <%= book.genre === 'Classics' ? 'selected' : '' %>>Classics</option>
+              <option value="Comics" <%= book.genre === 'Comics' ? 'selected' : '' %>>Comics</option>
+              <option value="Cookbooks" <%= book.genre === 'Cookbooks' ? 'selected' : '' %>>Cookbooks</option>
+              <option value="Crime" <%= book.genre === 'Crime' ? 'selected' : '' %>>Crime</option>
+              <option value="Drama" <%= book.genre === 'Drama' ? 'selected' : '' %>>Drama</option>
+              <option value="Dystopian" <%= book.genre === 'Dystopian' ? 'selected' : '' %>>Dystopian</option>
+              <option value="Education" <%= book.genre === 'Education' ? 'selected' : '' %>>Education</option>
+              <option value="Fantasy" <%= book.genre === 'Fantasy' ? 'selected' : '' %>>Fantasy</option>
+              <option value="Graphic Novel" <%= book.genre === 'Graphic Novel' ? 'selected' : '' %>>Graphic Novel</option>
+              <option value="Historical Fiction" <%= book.genre === 'Historical Fiction' ? 'selected' : '' %>>Historical Fiction</option>
+              <option value="Horror" <%= book.genre === 'Horror' ? 'selected' : '' %>>Horror</option>
+              <option value="Humor" <%= book.genre === 'Humor' ? 'selected' : '' %>>Humor</option>
+              <option value="Memoir" <%= book.genre === 'Memoir' ? 'selected' : '' %>>Memoir</option>
+              <option value="Mystery" <%= book.genre === 'Mystery' ? 'selected' : '' %>>Mystery</option>
+              <option value="Non-fiction" <%= book.genre === 'Non-fiction' ? 'selected' : '' %>>Non-fiction</option>
+              <option value="Philosophy" <%= book.genre === 'Philosophy' ? 'selected' : '' %>>Philosophy</option>
+              <option value="Poetry" <%= book.genre === 'Poetry' ? 'selected' : '' %>>Poetry</option>
+              <option value="Psychology" <%= book.genre === 'Psychology' ? 'selected' : '' %>>Psychology</option>
+              <option value="Religion" <%= book.genre === 'Religion' ? 'selected' : '' %>>Religion</option>
+              <option value="Romance" <%= book.genre === 'Romance' ? 'selected' : '' %>>Romance</option>
+              <option value="Science" <%= book.genre === 'Science' ? 'selected' : '' %>>Science</option>
+              <option value="Science Fiction" <%= book.genre === 'Science Fiction' ? 'selected' : '' %>>Science Fiction</option>
+              <option value="Self-help" <%= book.genre === 'Self-help' ? 'selected' : '' %>>Self-help</option>
+              <option value="Short Stories" <%= book.genre === 'Short Stories' ? 'selected' : '' %>>Short Stories</option>
+              <option value="Spirituality" <%= book.genre === 'Spirituality' ? 'selected' : '' %>>Spirituality</option>
+              <option value="Sports" <%= book.genre === 'Sports' ? 'selected' : '' %>>Sports</option>
+              <option value="Tragedy" <%= book.genre === 'Tragedy' ? 'selected' : '' %>>Tragedy</option>
+              <option value="Travel" <%= book.genre === 'Travel' ? 'selected' : '' %>>Travel</option>
+              <option value="Thriller" <%= book.genre === 'Thriller' ? 'selected' : '' %>>Thriller</option>
+              <option value="True Crime" <%= book.genre === 'True Crime' ? 'selected' : '' %>>True Crime</option>
+              <option value="Young Adult" <%= book.genre === 'Young Adult' ? 'selected' : '' %>>Young Adult</option>
+              <option value="+18" <%= book.genre === '+18' ? 'selected' : '' %>>+18</option>
+          </select>
         </div>
+        
        
         <div class="form-item">
           <h2>Status</h2>

@@ -66,6 +66,8 @@ export const updateBook = async (id, isbn, title, author, rating, genre, status,
     WHERE id = $8
     RETURNING *;
   `;
+
+  //cover_image ekle
   const values = [isbn, title, author, rating, genre, status, review, id];
 
   try {

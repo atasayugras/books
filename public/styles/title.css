@@ -15,21 +15,11 @@ h5 {
 .page-title {
   font-family: "Lora", serif;
   font-size: 36px;
-  font-weight: 700;
-  margin-bottom: 8px; /* Adds space between title and tabs */
 }
 
 .sub-title {
   font-size: 18px;
   color: #6a6a6a;
-  margin-top: 4px;
+  margin-top: 12px;
   margin-bottom: 16px; /* Adds space for better alignment */
-}
-
-.form-page-title {
-  font-family: "Lora", serif;
-  font-size: 36px;
-  font-weight: 700;
-  margin-bottom: 8px; /* Adds space between title and tabs */
-  margin-top: 22px;
 }

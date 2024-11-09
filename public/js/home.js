@@ -4,6 +4,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const bookItems = document.querySelectorAll('.book-item');
     const emptyState = document.querySelector('.empty-state');
   
+    //Show empty state
+    //Search books by their title
+    //Filter books by their rating
+
     function updateEmptyState() {
       const visibleBooks = Array.from(bookItems).filter(book => book.style.display !== 'none');
       if (emptyState) {

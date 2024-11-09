@@ -1,6 +1,6 @@
   /* ********** TRIGGER FORM ********** */
   document.getElementById("submitButton").addEventListener("click", () => {
-    document.getElementById("bookForm").submit();
+    document.getElementById("addBookForm").submit();
   });
 
   /* ********** ISBN INPUT ONLY NUMBER ********** */
