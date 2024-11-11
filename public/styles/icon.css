@@ -29,3 +29,32 @@
   background-size: contain;
   margin-bottom: 4px;
 }
+
+.book-icon {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background: url('/assets/svg/favourite-book.svg') no-repeat center center;
+  background-size: contain;
+}
+
+.back-icon {
+  width: 40px;
+  height: 40px;
+  background: url("/assets/svg/arrow-left-circle.svg") no-repeat center center;
+  background-size: contain;
+  cursor: pointer;
+}
+
+.back-btn:hover .back-icon {
+  background: url("/assets/svg/arrow-left-circle-solid.svg") no-repeat center center;
+  background-size: contain;
+}
+
+.back-label {
+  cursor: pointer;
+}
+
+.back-label:active {
+  color: #0000ee;
+}

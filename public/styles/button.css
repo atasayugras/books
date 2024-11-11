@@ -67,18 +67,8 @@ a {
 }
 
 .back-btn {
-  display: inline-block;
-  width: 40px;
-  height: 40px;
-  background: url("/assets/svg/arrow-left-circle.svg") no-repeat center center;
-  background-size: contain;
-}
-
-.back-btn:hover {
-  display: inline-block;
-  width: 40px;
-  height: 40px;
-  background: url("/assets/svg/arrow-left-circle-solid.svg") no-repeat center
-    center;
-  background-size: contain;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
 }
