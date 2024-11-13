@@ -22,7 +22,7 @@ router.post('/edit_book', async (req, res, next) => {
     // Construct the book object from form input values in the request body
     const book = {
       id: req.body.id,                              // Book uuid (Do not parse it as an INT)
-      isbn: parseInt(req.body.isbn),                // Convert ISBN to an integer
+      isbn: req.body.isbn,                          // ISBN (string) will be stored under a VARCHAR type column
       title: req.body.title,                        // Book title
       author: req.body.author,                      // Author's name
       rating: req.body.rating,                      // User rating for the book
